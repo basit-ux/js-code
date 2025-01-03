@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .empty-div {
+            width: 500px;
+            height: 500px;
+            border: 5px solid black;
+            position: relative; /* To position video and map correctly */
+            overflow: hidden; /* Hide overflow from iframes */
+        }
+
+        .colors, .obj {
+            align-content: center;
+        }
+
+        .btn {
+            width: 150px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            height: 40px;
+            border: 1px solid black;
+            background-color: white;
+            align-content: center;
+            text-align: center;
+        }
+
+        .embed-container {
+            width: 100%;
+            height: 100%;
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <section class="main">
+        <div id="empty-div" class="empty-div">
+            <img id="car" src="https://www.domusweb.it/content/dam/domusweb/en/news/gallery/2024/11/12/audi-launches-the-audi-brand-and-a-new-ev-concept-in-china/AUDI-china-E-domus-3.jpg.jpg.foto.rbig.jpg" width="491px" height="491px" style="display: none;" alt="">
+            <img id="flower" src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="display: none;" height="491px" width="491px" alt="">
+            <img src="https://preview.redd.it/who-is-arguably-the-most-famous-cartoon-character-of-all-v0-ee2zokrs2rzb1.jpg?width=811&format=pjpg&auto=webp&s=24ae04860361e2430b69b1fdfa63a45d3b5527b9" alt="" style="display: none;" width="491px" height="491px" id="cartoon">
+
+            <div id="video-container" class="embed-container">
+                <iframe src="https:// Cartoon Network Link | DOWNLOAD FREE GAME NOW! www.youtube.com › watch" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div id="map-container" class="embed-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.315060343414!2d-122.41941598468287!3d37.7749292797594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581199e25aad1%3A0x36f3c54be8926d67!2sSan%20Francisco%2C%20CA%2094102%2C%20USA!5e0!3m2!1sen!2sin!4v1662304781230!5m2!1sen!2sin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="colors">
+            <div class="btn" onclick="press('yellow')">Yellow</div>
+            <div class="btn" onclick="press('red')">Red</div>
+            <div class="btn" onclick="press('blue')">Blue</div>
+            <div class="btn" onclick="press('green')">Green</div>
+            <div class="btn" onclick="press('pink')">Pink</div>
+            <div class="btn" onclick="press('purple')">Purple</div>
+        </div>
+
+        <div class="obj">
+            <div class="btn" onclick="car()">Audi</div>
+            <div class="btn" onclick="flower()">Flower</div>
+            <div class="btn" onclick="cartoon()">Cartoon</div>
+            <div class="btn" onclick="showWebsite()">Website</div>
+            <div class="btn" onclick="showVideo()">Video</div>
+            <div class="btn" onclick="showMap()">Map</div>
+        </div>
+    </section>
+
+    <script>
+        function hideALL() {
+            document.getElementById('car').style.display = 'none';
+            document.getElementById('flower').style.display = 'none';
+            document.getElementById('cartoon').style.display = 'none';
+            document.getElementById('video-container').style.display = 'none';
+            document.getElementById('map-container').style.display = 'none';
+        }
+
+        function press(a) {
+            hideALL();
+            var getDiv = document.getElementById('empty-div');
+            getDiv.style.backgroundColor = a;
+        }
+
+        function car() {
+            hideALL();
+            var getCar = document.getElementById('car');
+            getCar.style.display = 'block';
+        }
+
+        function flower() {
+            hideALL();
+            var getFlower = document.getElementById('flower');
+            getFlower.style.display = 'block';
+        }
+
+        function cartoon() {
+            hideALL();
+            var getCartoon = document.getElementById('cartoon');
+            getCartoon.style.display = 'block';
+        }
+
+        function showWebsite() {
+            hideALL();
+            var getDiv = document.getElementById('empty-div');
+            getDiv.innerHTML = "<a href='https://www.example.com' target='_blank'>Visit Website</a>";
+        }
+
+        function showVideo() {
+            hideALL();
+            document.getElementById('video-container').style.display = 'block';
+        }
+
+        function showMap() {
+            hideALL();
+            document.getElementById('map-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
